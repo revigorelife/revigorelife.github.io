@@ -5,7 +5,7 @@
   <title>RevigoreLife — Live Your Best Life</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="RevigoreLife helps you live your best life with health, wellness, and lifestyle tips.">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="RevigoreLife — Live Your Best Life">
   <meta property="og:description" content="RevigoreLife helps you live your best life with health, wellness, and lifestyle tips.">
@@ -32,119 +32,128 @@
   </script>
 
   <style>
-    :root{
-      --brand: #1C6B63;
+    :root {
+      --brand: #1C6B63;   /* RevigoreLife green */
+      --ink: #1b1b1b;
+      --bg: #fafafa;
     }
     * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       margin: 0;
-      color: #1b1b1b;
-      background: #fafafa;
+      color: var(--ink);
+      background: var(--bg);
       line-height: 1.6;
     }
-    header {
+
+    /* Header with big centered logo */
+    header.hero {
       background: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 8px rgba(0,0,0,.05);
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      padding: 36px 20px 18px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
     }
-    header .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: .75rem;
+    .hero .logo {
+      width: clamp(160px, 22vw, 260px);
+      height: auto;
+      display: inline-block;
+      filter: drop-shadow(0 6px 18px rgba(0,0,0,.08));
     }
-    header img.logo {
-      height: 52px;
-      width: auto;
-      display: block;
-    }
-    nav a {
-      margin-left: 1.2rem;
-      text-decoration: none;
-      color: var(--brand);
-      font-weight: 500;
-    }
-    nav a:hover { text-decoration: underline; }
 
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 960px;
+      margin: 24px auto 48px;
+      padding: 0 20px;
     }
     h1 {
-      font-size: 2.4rem;
+      font-size: clamp(28px, 4vw, 44px);
       color: var(--brand);
-      margin-bottom: .25rem;
+      margin: 16px 0 8px;
     }
     .tagline {
-      font-size: 1.15rem;
+      font-size: clamp(16px, 2.2vw, 20px);
       color: #555;
-      margin-bottom: 1.75rem;
+      margin-bottom: 24px;
     }
 
-    footer {
-      background: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-top: 1px solid #eee;
-      margin-top: 3rem;
-    }
+    /* Social icons row */
     .social {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-top: 1rem;
+      gap: 18px;
+      margin: 36px 0 8px;
       align-items: center;
     }
     .social img {
       display: block;
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
       object-fit: contain;
     }
-    @media (min-width:768px) {
-      .social img { width: 32px; height: 32px; }
+
+    /* Footer green bar with links */
+    .site-footer {
+      margin-top: 40px;
+      background: var(--brand);
+      color: #fff;
+      text-align: center;
+    }
+    .site-footer .links {
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .site-footer .links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    .site-footer .links a:hover { text-decoration: underline; }
+    .site-footer .legal {
+      font-size: .92rem;
+      opacity: .95;
+      padding: 12px 16px 18px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="brand">
-      <!-- Updated logo path -->
-      <img src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" class="logo">
-    </div>
-    <nav>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/disclosures.html">Disclosures</a>
-      <a href="mailto:contact@revigorelife.com">Contact</a>
-    </nav>
+  <!-- Bigger, centered logo -->
+  <header class="hero" role="banner">
+    <!-- Make sure this file exists: /assets/img/revigorelife-logo1.png -->
+    <img src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" class="logo">
   </header>
 
-  <main>
+  <main role="main">
     <h1>Welcome to RevigoreLife</h1>
     <p class="tagline">Live Your Best Life</p>
 
     <p>At RevigoreLife, we believe in empowering you with the tools, tips, and resources to live healthier, happier, and more fulfilled. Whether it’s improving your wellness, upgrading your daily habits, or finding the best lifestyle products, we’re here to guide you every step of the way.</p>
 
     <p>Explore our articles, resources, and recommendations — and check back for new content soon.</p>
+
+    <!-- Local, repo-hosted icons (no links) -->
+    <div class="social" role="group" aria-label="Social media icons">
+      <!-- Ensure these files exist in /assets/img/ with EXACT names -->
+      <img src="/assets/img/instagram.png" alt="Instagram logo" loading="lazy">
+      <img src="/assets/img/whatsapp.svg"  alt="WhatsApp logo"  loading="lazy">
+    </div>
   </main>
 
-  <footer>
-    <div class="social" role="group" aria-label="Social media icons">
-      <!-- Local, repo-hosted icons (no links) -->
-      <img src="/assets/img/instagram.png" alt="Instagram logo" loading="lazy">
-      <img src="/assets/img/whatsapp.svg" alt="WhatsApp logo" loading="lazy">
-    </div>
-    <p style="margin-top:1rem; font-size:.9rem; color:#777;">
+  <!-- Green footer bar with links at the bottom -->
+  <footer class="site-footer" role="contentinfo">
+    <nav class="links" aria-label="Footer">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/disclosures.html">Disclosures</a>
+      <a href="mailto:contact@revigorelife.com">Contact</a>
+    </nav>
+    <div class="legal">
       © <script>document.write(new Date().getFullYear())</script> RevigoreLife. All rights reserved.
-    </p>
+    </div>
   </footer>
 
 </body>
