@@ -24,8 +24,13 @@
     /* Promo + header (search) + top nav */
     .top-promo{background:#0f4f47;color:#fff;font-weight:600;text-align:center;padding:8px 12px;font-size:.95rem}
     header.site-head{background:#fff;border-bottom:1px solid var(--border)}
-    header .row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:180px 1fr 280px;gap:16px;align-items:center;padding:14px 16px}
-    .logo{height:44px;object-fit:contain}
+    /* give the logo more space on desktop */
+    header .row{
+      max-width:1200px;margin:0 auto;display:grid;
+      grid-template-columns:220px 1fr 260px;gap:16px;align-items:center;padding:14px 16px
+    }
+    /* bigger, responsive logo */
+    .logo{height:clamp(60px, 8vw, 96px); object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.06))}
     .search{display:flex;gap:8px}
     .search input{width:100%;padding:10px 12px;border:1px solid #cdd6d4;border-radius:12px}
     .search button{padding:10px 14px;border-radius:12px;border:0;background:var(--brand);color:#fff;font-weight:700}
@@ -72,7 +77,7 @@
     footer.site-footer .legal{padding:12px 16px 18px;opacity:.95}
 
     @media (max-width:900px){
-      header .row{grid-template-columns:140px 1fr}
+      header .row{grid-template-columns:170px 1fr}
       nav.top-nav{flex-wrap:wrap}
       .tile--left{grid-column:span 12}
       .tile--center,.tile--right{grid-column:span 6}
@@ -100,10 +105,10 @@
       <button type="submit">Search</button>
     </form>
 
+    <!-- quicklinks: Privacy removed as requested -->
     <div class="quicklinks">
       <a href="/categories/">Categories</a>
       <a href="/products/">All Products</a>
-      <a href="/privacy.html">Privacy</a>
     </div>
   </div>
 
@@ -118,7 +123,7 @@
 
 <main class="wrap">
 
-  <!-- iHerb-style MOSAIC -->
+  <!-- Mosaic -->
   <section class="mosaic" aria-label="Highlights">
     <a class="tile tile--left" href="/category/health/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'health'})">
       <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()">
@@ -137,7 +142,7 @@
     </a>
   </section>
 
-  <!-- SHOP BY CATEGORY GRID -->
+  <!-- Shop by Category grid -->
   <h3 class="section">Shop by Category</h3>
   <section class="grid" aria-label="Shop by Category">
     <a class="cat" href="/category/health/" onclick="gtag('event','nav_click',{section:'grid',tile:'health'})">
