@@ -1,84 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Privacy Policy – RevigoreLife</title>
-  <meta name="description" content="Privacy policy for RevigoreLife: how we collect, use, and protect your data." />
-  <link rel="icon" href="/assets/img/favicon.png" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Privacy Policy | RevigoreLife</title>
+  <meta name="description" content="RevigoreLife privacy policy"/>
+
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;margin:0;background:#fafafa;color:#0b2530;line-height:1.65}
-    .container{max-width:900px;margin:0 auto;padding:28px}
-    h1{font-size:32px;margin:6px 0 12px}
-    h2{font-size:22px;margin:28px 0 8px}
-    p,li{color:#4b5563}
-    a{color:#0f766e}
-    .card{background:#fff;border:1px solid #ecf0f4;border-radius:16px;padding:22px}
-    .muted{color:#6b7280;font-size:14px}
+    :root { --brand:#1C6B63; --ink:#163a36; --bg:#f7f9f8; }
+    *{box-sizing:border-box}
+    html, body { height:100%; margin:0; }
+    body {
+      display:flex; flex-direction:column; min-height:100vh;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink); background:var(--bg); line-height:1.6;
+    }
+
+    .backwrap { max-width:960px; margin:16px auto 0; padding:0 20px; }
+    .backbtn {
+      display:inline-block; background:#ffffff; color:var(--brand); border:2px solid var(--brand);
+      padding:8px 14px; border-radius:10px; font-weight:700; text-decoration:none;
+      transition:background .15s ease, color .15s ease;
+    }
+    .backbtn:hover { background:var(--brand); color:#fff; }
+
+    main { flex:1; max-width:860px; margin:16px auto 48px; padding:0 20px; }
+    .card {
+      background:#fff; padding:24px; border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06); border:1px solid #eee;
+    }
+    h1 { font-size:2.2rem; margin:12px 0 8px; color:var(--brand); }
+    h2 { margin-top:32px; color:#333; }
+    a { color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand); }
+    .muted { color:#666; font-size:.95rem; }
+
+    /* Footer green bar */
+    .site-footer { background:var(--brand); color:#fff; text-align:center; }
+    .site-footer .links {
+      display:flex; gap:22px; justify-content:center; flex-wrap:wrap;
+      padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.2);
+    }
+    .site-footer .links a { color:#fff; text-decoration:none; font-weight:600; }
+    .site-footer .links a:hover { text-decoration:underline; }
+    .site-footer .legal { font-size:.92rem; opacity:.95; padding:12px 16px 18px; }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Privacy Policy</h1>
-    <p class="muted">Last updated: <span id="d"></span></p>
 
+  <div class="backwrap">
+    <a class="backbtn" href="/" onclick="if(history.length>1){history.back(); return false;}">← Back</a>
+  </div>
+
+  <main role="main">
     <div class="card">
-      <p>Welcome to <strong>RevigoreLife</strong> (“we”, “us”, “our”). This policy explains how we collect, use, and safeguard information when you visit <strong>revigorelife.com</strong> (the “Site”). By using the Site, you agree to this policy.</p>
-
-      <h2>Information We Collect</h2>
-      <ul>
-        <li><strong>Usage data:</strong> anonymous analytics (pages viewed, device type, approximate region).</li>
-        <li><strong>Cookies & similar tech:</strong> used for basic site functionality, analytics, and to understand traffic sources.</li>
-        <li><strong>Voluntary information:</strong> if you submit a form (email newsletter or contact), we collect the data you provide (e.g., name, email).</li>
-      </ul>
-
-      <h2>How We Use Information</h2>
-      <ul>
-        <li>Operate and improve the Site and content.</li>
-        <li>Understand what content is useful to readers (analytics).</li>
-        <li>Respond to messages you send us.</li>
-        <li>Comply with legal obligations.</li>
-      </ul>
-
-      <h2>Affiliate Links & Advertising</h2>
-      <p>Some outbound links are “affiliate links.” If you click and purchase, we may earn a commission at no extra cost to you. We may use tracking parameters (e.g., UTM, affiliate IDs) so partners can attribute referrals.</p>
-
-      <h2>Analytics & Cookies</h2>
-      <p>We use privacy‑respecting analytics and/or Google Analytics to understand aggregate usage. You can disable cookies in your browser settings. If you use an opt‑out mechanism (e.g., <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">GA opt‑out</a>), analytics will not track your visit.</p>
-
-      <h2>Email & Contact Forms</h2>
-      <p>If you subscribe to emails or contact us, we store the information you provide so we can send content or reply. You can unsubscribe at any time using the link in any email, or by contacting us.</p>
-
-      <h2>Data Sharing</h2>
-      <p>We do not sell personal information. We may share limited data with service providers (e.g., email service, analytics) strictly to operate the Site. Providers are bound by confidentiality where applicable.</p>
-
-      <h2>International Visitors</h2>
-      <p>Your data may be processed in countries other than your own. By using the Site, you consent to such transfer where permitted by law.</p>
-
-      <h2>Your Rights</h2>
-      <p>Depending on your location, you may have rights to access, correct, or delete your personal data. To exercise rights, email us at <a href="mailto:CONTACT@REVIGORELIFE.COM">CONTACT@REVIGORELIFE.COM</a>.</p>
-
-      <h2>Data Retention</h2>
-      <p>We retain data only as long as needed for the purposes in this policy unless a longer period is required by law.</p>
-
-      <h2>Security</h2>
-      <p>We use reasonable administrative, technical, and physical safeguards. No method of transmission or storage is 100% secure.</p>
-
-      <h2>Third‑Party Links</h2>
-      <p>We link to external sites. Their privacy practices may differ. Review their policies before providing personal information.</p>
-
-      <h2>Children’s Privacy</h2>
-      <p>The Site is not intended for children under 13 (or under 16 in the EU). We do not knowingly collect data from children.</p>
-
-      <h2>Changes to This Policy</h2>
-      <p>We may update this policy. Material changes will be posted here with a new “Last updated” date.</p>
-
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:CONTACT@REVIGORELIFE.COM">CONTACT@REVIGORELIFE.COM</a><br>
-         Address (optional): ADDRESS OR PO BOX, CITY, COUNTRY</p>
-    </div>
-  </main>
-
-  <script>document.getElementById('d').textContent=new Date().toLocaleDateString();</script>
-</body>
-</html>
+      <h1>Privacy Policy</h1>
+      <p class="muted">Last updated: <script>document.write(new Date().toLocaleDateString())</scrip
