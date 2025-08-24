@@ -1,20 +1,12 @@
 <!doctype html><meta charset="utf-8">
 <script>
-  // Country tag (from ?country=US on the button)
   const country = new URL(location.href).searchParams.get('country') || 'US';
-
-  // Your affiliate URL (as provided)
-  const base = "https://www.tracxpert.com/2GHLWSM2/W7KP6BZ/";
-
-  // Add clean UTMs for your analytics (safe for most networks)
+  const base = "https://www.tracxpert.com/2GHLWSM2/W7KP6BZ/"; // your affiliate link
   const sep = base.includes('?') ? '&' : '?';
   const url = base + sep +
     'utm_source=revigorelife&utm_medium=affiliate&utm_campaign=bioma-probiotics&utm_country=' + encodeURIComponent(country);
 
-  // GA4 redirect event (optional)
   if (window.gtag) { try { gtag('event','affiliate_redirect',{offer:'bioma-probiotics',country}); } catch(e){} }
-
-  // Redirect
   location.replace(url);
 </script>
 <p>If you are not redirected, <a rel="sponsored nofollow" href="https://www.tracxpert.com/2GHLWSM2/W7KP6BZ/">click here</a>.</p>
