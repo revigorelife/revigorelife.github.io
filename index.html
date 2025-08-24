@@ -32,6 +32,10 @@
   </script>
 
   <style>
+    :root{
+      --brand: #1C6B63;
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin: 0;
@@ -50,32 +54,40 @@
       top: 0;
       z-index: 999;
     }
+    header .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+    }
     header img.logo {
-      height: 48px;
+      height: 52px;
+      width: auto;
+      display: block;
     }
     nav a {
       margin-left: 1.2rem;
       text-decoration: none;
-      color: #1C6B63;
+      color: var(--brand);
       font-weight: 500;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
+
     main {
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
     h1 {
-      font-size: 2.5rem;
-      color: #1C6B63;
+      font-size: 2.4rem;
+      color: var(--brand);
+      margin-bottom: .25rem;
     }
     .tagline {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #555;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
+
     footer {
       background: #fff;
       padding: 2rem 1rem;
@@ -86,26 +98,27 @@
     .social {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      gap: 16px;
       margin-top: 1rem;
+      align-items: center;
     }
     .social img {
-      width: 28px;
-      height: 28px;
+      display: block;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
     }
     @media (min-width:768px) {
-      .social img {
-        width: 30px;
-        height: 30px;
-      }
+      .social img { width: 32px; height: 32px; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <div>
-      <img src="/revigorelife-horizontal.svg" alt="RevigoreLife" class="logo">
+    <div class="brand">
+      <!-- Updated logo path -->
+      <img src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" class="logo">
     </div>
     <nav>
       <a href="/privacy.html">Privacy</a>
@@ -120,14 +133,15 @@
 
     <p>At RevigoreLife, we believe in empowering you with the tools, tips, and resources to live healthier, happier, and more fulfilled. Whether it’s improving your wellness, upgrading your daily habits, or finding the best lifestyle products, we’re here to guide you every step of the way.</p>
 
-    <p>Explore our articles, resources, and recommendations — and don’t forget to follow us on social media for the latest updates.</p>
+    <p>Explore our articles, resources, and recommendations — and check back for new content soon.</p>
   </main>
 
   <footer>
     <div class="social" role="group" aria-label="Social media icons">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" loading="lazy">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" loading="lazy">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" loading="lazy">
+      <!-- Local, repo-hosted icons (no links) -->
+      <img src="/assets/img/linkedin.svg" alt="LinkedIn logo" loading="lazy">
+      <img src="/assets/img/instagram.png" alt="Instagram logo" loading="lazy">
+      <img src="/assets/img/whatsapp.svg" alt="WhatsApp logo" loading="lazy">
     </div>
     <p style="margin-top:1rem; font-size:.9rem; color:#777;">
       © <script>document.write(new Date().getFullYear())</script> RevigoreLife. All rights reserved.
