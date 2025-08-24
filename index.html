@@ -32,10 +32,12 @@
     /* === Amazon-style Featured grid === */
     .featured { margin: 28px 0 8px }
     .featured h3.section { margin: 18px 0 12px; color: var(--ink); font-size: 1.15rem }
-    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px }
-    .pcard { background:#fff; border:1px solid var(--border); border-radius:14px; box-shadow:0 8px 22px rgba(0,0,0,.06); padding:12px; display:flex; flex-direction:column }
-    .pimg { aspect-ratio:1/1; border:1px solid #eef1ef; border-radius:12px; overflow:hidden; display:grid; place-items:center; background:#fff }
-    .pimg img { width:100%; height:100%; object-fit:contain }
+/* Featured grid — make product image bigger like Amazon tiles */
+.cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.pimg { aspect-ratio: 4 / 5; padding: 10px; }      /* taller image area */
+.pimg img { transform: scale(1); transition: transform .15s ease; }
+.pcard:hover .pimg img { transform: scale(1.04); } /* subtle hover zoom */
+
     .swatches { display:flex; gap:6px; margin:8px 0 6px }
     .swatch { width:11px; height:11px; border-radius:999px; border:1px solid rgba(0,0,0,.25) }
     .ptitle { margin:6px 0 4px; font-size:.95rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
