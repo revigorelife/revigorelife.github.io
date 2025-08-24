@@ -8,9 +8,20 @@
   <!-- Premium fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Meta / theme -->
+  <!-- Theme + favicon (SVG icon as modern favicon) -->
   <meta name="theme-color" content="#0B4F3F">
-  <link rel="icon" type="image/png" href="/assets/img/revigorelife-logo2.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/revigorelife-icon.svg">
+  <link rel="alternate icon" type="image/png" href="/assets/img/revigorelife-logo2.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/img/revigorelife-logo2.png">
+
+  <!-- Social preview (update to a 1200x630 image when you have it) -->
+  <meta property="og:title" content="RevigoreLife — Wellness, Elevated">
+  <meta property="og:description" content="Evidence‑based wellness insights, curated products, and simple guides to help you feel your best—every day.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://revigorelife.com/">
+  <meta property="og:image" content="https://revigorelife.com/assets/img/revigorelife-logo2.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://revigorelife.com/assets/img/revigorelife-logo2.png">
 
   <style>
     :root{
@@ -50,15 +61,13 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:14px;
+      gap:12px;
       margin-bottom:18px;
       text-decoration:none;
       color:inherit;
     }
     .brand img{
-      width:120px; /* bigger logo */
-      height:auto;
-      display:block;
+      width:120px; height:auto; display:block;
     }
     .wordmark{
       font-family:"Playfair Display", serif;
@@ -71,7 +80,7 @@
     .tag{
       font-size:16px;
       color:#40514e;
-      margin-top:6px;
+      margin-top:4px;
     }
     .divider{
       width:86px;height:2px;background:var(--gold);
@@ -96,7 +105,7 @@
 <body>
   <main class="card">
     <a class="brand" href="https://revigorelife.com" aria-label="RevigoreLife homepage">
-      <!-- Using your uploaded PNG logo -->
+      <!-- Your PNG logo -->
       <img src="assets/img/revigorelife-logo2.png" alt="RevigoreLife logo">
       <div class="wordmark">REVIGORELIFE</div>
       <div class="tag">Wellness • Balance • Vitality</div>
@@ -105,7 +114,7 @@
     <div class="divider"></div>
 
     <p class="lead">
-      Our new experience is almost ready. Evidence-based wellness insights, curated products, and
+      Our new experience is almost ready. Evidence‑based wellness insights, curated products, and
       simple guides to help you feel your best—every day.
     </p>
 
