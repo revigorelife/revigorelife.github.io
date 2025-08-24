@@ -8,20 +8,9 @@
   <!-- Premium fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Theme + favicon (SVG icon as modern favicon) -->
+  <!-- Theme + favicon -->
   <meta name="theme-color" content="#0B4F3F">
-  <link rel="icon" type="image/svg+xml" href="/assets/img/revigorelife-icon.svg">
-  <link rel="alternate icon" type="image/png" href="/assets/img/revigorelife-logo2.png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/assets/img/revigorelife-logo2.png">
-
-  <!-- Social preview (update to a 1200x630 image when you have it) -->
-  <meta property="og:title" content="RevigoreLife — Wellness, Elevated">
-  <meta property="og:description" content="Evidence‑based wellness insights, curated products, and simple guides to help you feel your best—every day.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://revigorelife.com/">
-  <meta property="og:image" content="https://revigorelife.com/assets/img/revigorelife-logo2.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://revigorelife.com/assets/img/revigorelife-logo2.png">
+  <link rel="icon" type="image/png" href="/assets/img/revigorelife-logo2.png">
 
   <style>
     :root{
@@ -30,6 +19,7 @@
       --gold:#D4B46A;
       --ink:#1B1F23;
       --paper:#FAFAF7;
+      --logo-size: clamp(140px, 26vw, 220px); /* controls logo size */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -47,49 +37,64 @@
       padding:32px;
     }
     .card{
-      width:min(880px,90vw);
+      width:min(980px,92vw);
       background:#fff;
-      border-radius:22px;
-      padding:42px 36px 36px;
+      border-radius:24px;
+      padding:48px 42px 38px;
       box-shadow:
-        0 10px 30px rgba(0,0,0,.06),
+        0 18px 55px rgba(0,0,0,.08),
         0 1px 0 rgba(0,0,0,.05) inset;
       text-align:center;
       border:1px solid rgba(11,79,63,.08);
     }
-    .brand{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:12px;
-      margin-bottom:18px;
-      text-decoration:none;
-      color:inherit;
+
+    /* ===== bigger, modern logo highlight ===== */
+    .logo-plate{
+      display:inline-grid;
+      place-items:center;
+      margin:0 auto 14px;
+      width: calc(var(--logo-size) + 36px);
+      height: calc(var(--logo-size) + 36px);
+      border-radius:24px;
+      background:
+        radial-gradient(120% 120% at 20% 10%, rgba(212,180,106,.12), transparent 50%),
+        radial-gradient(120% 120% at 80% 90%, rgba(26,163,122,.10), transparent 50%),
+        #fff;
+      border:1px solid rgba(11,79,63,.10);
+      box-shadow:
+        0 10px 24px rgba(11,79,63,.08),
+        0 0 0 6px rgba(212,180,106,.10);
     }
-    .brand img{
-      width:120px; height:auto; display:block;
+    .logo-plate img{
+      width: var(--logo-size);
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.06));
+      border-radius:14px; /* keeps edges neat if PNG has background */
     }
+
     .wordmark{
       font-family:"Playfair Display", serif;
       font-weight:700;
-      letter-spacing:.5px;
-      font-size: clamp(28px, 5vw, 40px);
+      letter-spacing:.6px;
+      font-size: clamp(34px, 6vw, 56px); /* much larger */
       color:var(--evergreen);
-      line-height:1.05;
+      line-height:1.04;
+      margin-top:10px;
     }
     .tag{
       font-size:16px;
       color:#40514e;
-      margin-top:4px;
+      margin-top:6px;
     }
     .divider{
-      width:86px;height:2px;background:var(--gold);
+      width:96px;height:2px;background:var(--gold);
       margin:18px auto 24px;border-radius:2px;
     }
-    .lead{font-size:18px;color:#334;}
+    .lead{font-size:18px;color:#334;max-width:760px;margin:0 auto}
     .pill{
       display:inline-flex; align-items:center; gap:10px;
-      margin-top:22px;
+      margin-top:24px;
       padding:12px 18px;
       border:1px solid rgba(11,79,63,.18);
       border-radius:999px;
@@ -104,12 +109,15 @@
 </head>
 <body>
   <main class="card">
-    <a class="brand" href="https://revigorelife.com" aria-label="RevigoreLife homepage">
-      <!-- Your PNG logo -->
-      <img src="assets/img/revigorelife-logo2.png" alt="RevigoreLife logo">
-      <div class="wordmark">REVIGORELIFE</div>
-      <div class="tag">Wellness • Balance • Vitality</div>
+    <!-- Modern hero: big logo inside a soft glass tile -->
+    <a href="https://revigorelife.com" aria-label="RevigoreLife homepage" style="text-decoration:none;color:inherit">
+      <div class="logo-plate">
+        <img src="assets/img/revigorelife-logo2.png" alt="RevigoreLife logo">
+      </div>
     </a>
+
+    <div class="wordmark">REVIGORELIFE</div>
+    <div class="tag">Wellness • Balance • Vitality</div>
 
     <div class="divider"></div>
 
