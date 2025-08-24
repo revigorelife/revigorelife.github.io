@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gadgets | RevigoreLife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Home, lifestyle, and survival gadgets.">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYSHDCW0X5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYSHDCW0X5',{anonymize_ip:true});</script>
+
+  <style>
+    :root{--brand:#1C6B63;--ink:#163a36;--bg:#f7f9f8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+    header{padding:24px 20px;border-bottom:1px solid #e7ecea;background:#fff;text-align:center}
+    main{max-width:1100px;margin:24px auto 56px;padding:0 20px}
+    h1{color:var(--brand);margin:.2rem 0 .6rem}
+    p.lead{color:#4b5c59;margin:.2rem 0 1.2rem}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 16px}
+    select{padding:10px 12px;border:1px solid #cdd6d4;border-radius:10px;background:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .card{background:#fff;border:1px solid #e7ecea;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.05);padding:16px;display:flex;flex-direction:column}
+    .card img{width:100%;height:140px;object-fit:contain;margin:4px 0 8px}
+    .chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 10px}
+    .chip{background:#e9f3f2;border:1px solid #d1e6e3;color:#0f4f47;padding:2px 8px;border-radius:999px;font-size:.8rem}
+    .btns{margin-top:auto;display:flex;gap:8px}
+    .btn{flex:1;text-align:center;padding:10px 12px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn.buy{background:var(--brand);color:#fff}
+    .btn.more{border:2px solid var(--brand);color:var(--brand);background:#fff}
+    .empty{padding:18px;border:1px dashed #cdd6d4;border-radius:12px;background:#fff}
+    footer{background:var(--brand);color:#fff;text-align:center}
+    footer nav{display:flex;gap:22px;justify-content:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.2)}
+    footer a{color:#fff;text-decoration:none;font-weight:600}
+    footer .legal{padding:12px 16px 18px}
+  </style>
+</head>
+<body>
+<header><h1>Gadgets</h1></header>
+
+<main>
+  <p class="lead">Smart, useful tools for home, lifestyle, and outdoor needs.</p>
+
+  <div class="filters">
+    <select id="filter-country"><option value="">All Countries</option></select>
+  </div>
+
+  <div id="grid" class="grid" aria-live="polite"></div>
+  <div id="empty" class="empty" style="display:none">No products in this category yet. Check back soon.</div>
+</main>
+
+<footer>
+  <nav><a href="/privacy.html">Privacy</a><a href="/disclosures.html">Disclosures</a><a href="/categories/">All categories</a><a href="/">Home</a></nav>
+  <div class="legal">© <script>document.write(new Date().getFullYear())</script> RevigoreLife</div>
+</footer>
+
+<script>
+  const CATEGORY = "Gadgets";
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const fCountry = document.getElementById('filter-country');
+
+  fetch('/assets/data/products.json')
+    .then(r => r.json())
+    .then(products => {
+      const items = products.filter(p => p.category === CATEGORY);
+      const countries = [...new Set(items.flatMap(p=>p.countries))].sort();
+      countries.forEach(c => fCountry.insertAdjacentHTML('beforeend', `<option>${c}</option>`));
+      render(items);
+      fCountry.addEventListener('change', () => render(items));
+    })
+    .catch(() => { grid.innerHTML = ""; empty.style.display = "block"; });
+
+  function render(items) {
+    const cc = fCountry.value;
+    const filtered = items.filter(p => !cc || (p.countries||[]).includes(cc));
+    if (!filtered.length) { grid.innerHTML = ""; empty.style.display = "block"; return; }
+    empty.style.display = "none";
+    grid.innerHTML = filtered.map(p => card(p)).join('');
+  }
+
+  function card(p){
+    const chips = (p.countries||[]).slice(0,6).map(c=>`<span class="chip">${c}</span>`).join('') + ((p.countries||[]).length>6?` <span class="chip">+${(p.countries||[]).length-6}</span>`:'');
+    return `
+      <article class="card">
+        <img src="${p.image||'/assets/img/revigorelife-logo1.png'}" alt="${p.title||'Product'}">
+        <h3>${p.title||'Product'}</h3>
+        <p>${(p.bullets||[]).slice(0,3).join(' • ')}</p>
+        <div class="chips" aria-label="Available countries">${chips}</div>
+        <div class="btns">
+          <a class="btn more" href="${p.productUrl||'#'}">Details</a>
+          <a class="btn buy" href="${p.goUrl||'#'}" rel="sponsored nofollow noopener"
+             onclick="gtag('event','affiliate_click',{offer:'${p.slug||''}',country:'category-gadgets',placement:'category'});">Buy</a>
+        </div>
+      </article>`;
+  }
+</script>
+</body>
+</html>
