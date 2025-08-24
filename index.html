@@ -15,8 +15,8 @@
 
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
 
-  <!-- Preload hero logo for faster LCP (adjust type if you don't add the WebP) -->
-  <link rel="preload" as="image" href="/assets/img/revigorelife-logo1.webp" imagesrcset="/assets/img/revigorelife-logo1.webp" type="image/webp">
+  <!-- Preload the WebP LCP image for faster paint -->
+  <link rel="preload" as="image" href="/assets/img/revigorelife-logo1.webp" type="image/webp">
 
   <style>
     :root { --brand:#1C6B63; --ink:#163a36; --bg:#f7f9f8; }
@@ -31,7 +31,6 @@
     header.hero {
       background:#fff; padding:36px 20px 18px; border-bottom:1px solid #e7ecea; text-align:center;
     }
-    /* Keep actual logo pixels similar to these to avoid up/downscaling cost */
     .hero .logo {
       width:clamp(160px,22vw,260px);
       height:auto;
@@ -59,14 +58,12 @@
 <body>
 
   <header class="hero" role="banner">
-    <!-- Use WebP with PNG fallback. Set intrinsic width/height to avoid CLS (adjust to your real logo pixels). -->
     <picture>
       <source srcset="/assets/img/revigorelife-logo1.webp" type="image/webp">
       <img
         src="/assets/img/revigorelife-logo1.png"
         alt="RevigoreLife"
         class="logo"
-        width="520" height="520"  <!-- set to your logo’s actual pixel size -->
         fetchpriority="high"
         decoding="async"
         loading="eager">
@@ -82,7 +79,6 @@
     <p>Explore our articles, resources, and recommendations — and check back for new content soon.</p>
 
     <div class="social" role="group" aria-label="Social media icons">
-      <!-- Explicit sizes prevent layout shift -->
       <img src="/assets/img/Instagram.png" alt="Instagram logo" width="34" height="34" decoding="async" loading="lazy">
       <img src="/assets/img/whatsapp.svg"  alt="WhatsApp logo"  width="34" height="34" decoding="async" loading="lazy">
     </div>
