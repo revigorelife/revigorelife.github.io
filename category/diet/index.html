@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Diet Products | RevigoreLife</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diet and weight management offers.">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYSHDCW0X5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYSHDCW0X5',{anonymize_ip:true});</script>
+  <style>/* copy same CSS from Health page */</style>
+</head>
+<body>
+<header><h1>Diet</h1></header>
+<main>
+  <p class="lead">Weight management, metabolism, and appetite support.</p>
+  <div class="filters"><select id="filter-country"><option value="">All Countries</option></select></div>
+  <div id="grid" class="grid" aria-live="polite"></div>
+  <div id="empty" class="empty" style="display:none">No products in this category yet. Check back soon.</div>
+</main>
+<footer>
+  <nav><a href="/privacy.html">Privacy</a><a href="/disclosures.html">Disclosures</a><a href="/categories/">All categories</a><a href="/">Home</a></nav>
+  <div class="legal">© <script>document.write(new Date().getFullYear())</script> RevigoreLife</div>
+</footer>
+<script>
+  const CATEGORY="Diet"; const grid=document.getElementById('grid'); const empty=document.getElementById('empty'); const fCountry=document.getElementById('filter-country');
+  fetch('/assets/data/products.json').then(r=>r.json()).then(products=>{
+    const items=products.filter(p=>p.category===CATEGORY);
+    const countries=[...new Set(items.flatMap(p=>p.countries))].sort(); countries.forEach(c=>fCountry.insertAdjacentHTML('beforeend',`<option>${c}</option>`));
+    render(items); fCountry.addEventListener('change',()=>render(items));
+  }).catch(()=>{grid.innerHTML=""; empty.style.display="block";});
+  function render(items){const cc=fCountry.value; const filtered=items.filter(p=>!cc || (p.countries||[]).includes(cc));
+    if(!filtered.length){grid.innerHTML=""; empty.style.display="block"; return;}
+    empty.style.display="none"; grid.innerHTML=filtered.map(p=>card(p)).join('');}
+  function card(p){const chips=(p.countries||[]).slice(0,6).map(c=>`<span class="chip">${c}</span>`).join('')+((p.countries||[]).length>6?` <span class="chip">+${(p.countries||[]).length-6}</span>`:'');
+    return `<article class="card"><img src="${p.image||'/assets/img/revigorelife-logo1.png'}" alt="${p.title||'Product'}"><h3>${p.title||'Product'}</h3><p>${(p.bullets||[]).slice(0,3).join(' • ')}</p><div class="chips">${chips}</div><div class="btns"><a class="btn more" href="${p.productUrl||'#'}">Details</a><a class="btn buy" href="${p.goUrl||'#'}" rel="sponsored nofollow noopener" onclick="gtag('event','affiliate_click',{offer:'${p.slug||''}',country:'category-diet',placement:'category'});">Buy</a></div></article>`;}
+</script>
+</body>
+</html>
