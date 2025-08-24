@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bioma Probiotics (US) | RevigoreLife</title>
+  <title>Bioma Probiotics — Pre-, Pro- & Postbiotics | RevigoreLife (US)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://revigorelife.com/us/products/bioma-probiotics/">
-  <meta name="description" content="Bioma Probiotics — gut health support. Available in the United States.">
-  <meta property="og:title" content="Bioma Probiotics (US) | RevigoreLife">
-  <meta property="og:description" content="Gut health support. Available in the United States.">
-  <meta property="og:image" content="https://revigorelife.com/assets/img/products/bioma-probiotics.jpg">
+  <meta name="description" content="Bioma Probiotics combines prebiotics, probiotics and postbiotics to support digestive balance and a healthy gut ecosystem. Learn more and shop in the US.">
+  <meta property="og:title" content="Bioma Probiotics — Pre-, Pro- & Postbiotics">
+  <meta property="og:description" content="3-in-1 gut support: prebiotics to nourish, probiotics to replenish, postbiotics to signal.">
+  <meta property="og:image" content="/assets/img/products/bioma-probiotics/Main_Bioma.png">
   <meta property="og:type" content="product">
+  <meta property="og:url" content="https://revigorelife.com/us/products/bioma-probiotics/">
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
 
   <!-- GA4 -->
@@ -17,93 +17,125 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYSHDCW0X5',{anonymize_ip:true});</script>
 
   <style>
-    :root{--brand:#1C6B63;--ink:#163a36;--bg:#f7f9f8}
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
-    header{padding:24px 20px;border-bottom:1px solid #e7ecea;background:#fff;text-align:center}
-    main{max-width:980px;margin:24px auto 72px;padding:0 20px}
-    h1{color:var(--brand);margin:0 0 12px}
-    .hero{display:grid;grid-template-columns:260px 1fr;gap:22px;align-items:start}
-    .card{background:#fff;border:1px solid #e7ecea;border-radius:16px;box-shadow:0 8px 22px rgba(0,0,0,.06);padding:16px}
-    .hero img{width:100%;height:240px;object-fit:contain;border-radius:12px;border:1px solid #e7ecea;background:#fff}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-    .btn{padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700}
-    .btn.primary{background:var(--brand);color:#fff}
-    .note{font-size:.92rem;color:#4b5c59}
-    ul{margin:8px 0 0 18px}
-    footer{background:var(--brand);color:#fff;text-align:center}
+    :root{--brand:#1C6B63;--ink:#163a36;--bg:#f7f9f8;--border:#e7ecea}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+    a{color:var(--brand)}
+    header.site-head{background:#fff;border-bottom:1px solid var(--border)}
+    header .row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:220px 1fr 260px;gap:16px;align-items:center;padding:14px 16px}
+    .logo{height:clamp(56px,7vw,88px);object-fit:contain}
+    .quicklinks{text-align:right}
+    .quicklinks a{font-weight:600;text-decoration:none;margin-left:10px;color:#163a36}
+
+    .wrap{max-width:1200px;margin:22px auto 64px;padding:0 16px}
+
+    /* Product hero */
+    .p-hero{display:grid;grid-template-columns:minmax(280px,520px) 1fr;gap:28px;align-items:start}
+    .img-wrap{background:#fff;border:1px solid var(--border);border-radius:18px;height:min(72vh,640px);display:grid;place-items:center;box-shadow:0 14px 36px rgba(0,0,0,.06)}
+    .img-wrap img{max-width:96%;max-height:96%;object-fit:contain}
+    .p-title{margin:0 0 8px;color:var(--brand);font-size:clamp(22px,3vw,30px);line-height:1.2}
+    .rating{color:#4b5c59;font-size:.95rem;margin:6px 0 10px}
+    .price{font-weight:800;font-size:1.4rem;margin:8px 0}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0 18px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:800;text-decoration:none}
+    .btn.buy{background:var(--brand);color:#fff}
+    .btn.alt{border:2px solid var(--brand);color:var(--brand);background:#fff}
+
+    /* Sections */
+    .section{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 16px;margin-top:16px}
+    .section h3{margin:0 0 8px;font-size:1.1rem;color:#1b4944}
+    ul.bullets{margin:8px 0 0 18px}
+    .disclaimer{font-size:.85rem;color:#566765;margin-top:10px}
+
+    /* Footer */
+    footer{background:var(--brand);color:#fff;text-align:center;margin-top:36px}
     footer nav{display:flex;gap:22px;justify-content:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.2)}
     footer a{color:#fff;text-decoration:none;font-weight:600}
-    footer .legal{padding:12px 16px 18px}
-    @media (max-width:820px){.hero{grid-template-columns:1fr}}
+    footer .legal{padding:12px 16px 18px;opacity:.95}
+
+    @media (max-width:900px){
+      header .row{grid-template-columns:170px 1fr}
+      .p-hero{grid-template-columns:1fr}
+      .img-wrap{height:420px}
+    }
   </style>
 </head>
 <body>
-<header><h1>Bioma Probiotics</h1></header>
 
-<main>
-  <section class="hero">
-    <div class="card">
-      <img src="/assets/img/products/bioma-probiotics.jpg"
-           alt="Bioma Probiotics product"
-           onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;800&quot; height=&quot;600&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;%23f2f6f5&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial, sans-serif&quot; font-size=&quot;28&quot; fill=&quot;%23163a36&quot;>Bioma Probiotics</text></svg>';">
+<header class="site-head">
+  <div class="row">
+    <a href="/"><img class="logo" src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" onerror="this.src='/assets/img/revigorelife-logo.png'"></a>
+    <div></div>
+    <div class="quicklinks">
+      <a href="/categories/">Categories</a>
+      <a href="/products/">All Products</a>
+    </div>
+  </div>
+</header>
 
-      <p><strong>Available in:</strong> US</p>
-      <ul>
-        <li>Supports healthy gut balance</li>
-        <li>Daily formula; mobile-first audience</li>
-        <li>Women 45–54 are top converters</li>
-      </ul>
+<main class="wrap">
+  <nav aria-label="Breadcrumb" style="margin:6px 0 18px;font-size:.95rem;">
+    <a href="/">Home</a> › <a href="/category/health/">Health</a> › Bioma Probiotics
+  </nav>
 
+  <div class="p-hero">
+    <div class="img-wrap">
+      <img src="/assets/img/products/bioma-probiotics/Main_Bioma.png" alt="Bioma Probiotics bottle"
+           onerror="this.src='/assets/img/revigorelife-logo1.png'">
+    </div>
+
+    <div>
+      <h1 class="p-title">Bioma Probiotics — Prebiotics • Probiotics • Postbiotics</h1>
+      <div class="rating">★ ★ ★ ★ ☆  4.6 (community reviews)</div>
+      <div class="price">$47<sup>99</sup></div>
       <div class="cta">
-        <a class="btn primary" href="/go/bioma-probiotics/?country=US"
-           rel="sponsored nofollow noopener"
-           onclick="gtag('event','affiliate_click',{offer:'bioma-probiotics',country:'US',placement:'pdp'});">
-          Buy at Official Site →
-        </a>
+        <a class="btn buy" href="/go/bioma-probiotics/?country=US" rel="sponsored nofollow noopener"
+           onclick="gtag('event','affiliate_click',{offer:'bioma-probiotics',placement:'pdp'});">Buy Now</a>
+        <a class="btn alt" href="#details">Product Details</a>
       </div>
-      <p class="note">We may earn a commission if you buy via our links. Not medical advice. No brand bidding per advertiser rules.</p>
-    </div>
 
-    <div class="card">
-      <h2>Why we like it</h2>
-      <ul>
-        <li>Formulated for gut health &amp; bloat comfort</li>
-        <li>Tiered pricing: multi-bottle savings</li>
-        <li>Reputable DTC checkout</li>
-      </ul>
+      <div class="section" id="overview">
+        <h3>Overview</h3>
+        <p><strong>Bioma Probiotics</strong> is a 3-in-1 formula that pairs
+          <em>prebiotics</em> (to nourish good bacteria),
+          <em>probiotics</em> (to replenish beneficial strains), and
+          <em>postbiotics</em> (beneficial compounds made by probiotics) to help
+          support everyday digestive comfort and a balanced gut ecosystem.</p>
+        <p>Designed for daily use and busy lifestyles, the formula is shelf-stable and crafted for broad, gentle support.</p>
+      </div>
 
-      <h3>Good to know</h3>
-      <ul>
-        <li>Traffic allowed: SEO, paid social, native, generic paid search</li>
-        <li>Forbidden: brand bidding, false claims, negative ads</li>
-        <li>Best states: VA, CA, TX, FL, NY, PA</li>
-      </ul>
+      <div class="section" id="highlights">
+        <h3>Key Benefits</h3>
+        <ul class="bullets">
+          <li>3-in-1 gut support: prebiotics + probiotics + postbiotics</li>
+          <li>Supports digestive balance and regularity*</li>
+          <li>Helps with occasional gas and bloating*</li>
+          <li>Convenient daily capsule; no fridge required</li>
+        </ul>
+        <p class="disclaimer">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+      </div>
+
+      <div class="section" id="details">
+        <h3>How to Use</h3>
+        <p>Adults: take as directed on the product label, preferably with water. If you’re new to probiotics, start with the lowest suggested serving for a few days.</p>
+      </div>
+
+      <div class="section" id="safety">
+        <h3>Good to Know</h3>
+        <p>Consult your healthcare professional before use if you are pregnant, nursing, taking medication, or have a medical condition. Keep out of reach of children.</p>
+      </div>
     </div>
-  </section>
+  </div>
 </main>
 
 <footer>
-  <nav><a href="/privacy.html">Privacy</a><a href="/disclosures.html">Disclosures</a><a href="/">Home</a></nav>
+  <nav>
+    <a href="/disclosures.html">Disclosures</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/">Home</a>
+  </nav>
   <div class="legal">© <script>document.write(new Date().getFullYear())</script> RevigoreLife</div>
 </footer>
 
-<!-- Product JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Product",
-  "name":"Bioma Probiotics",
-  "description":"Bioma Probiotics — gut health support. Available in the United States.",
-  "image":"https://revigorelife.com/assets/img/products/bioma-probiotics.jpg",
-  "brand":{"@type":"Brand","name":"Bioma"},
-  "offers":{
-    "@type":"Offer",
-    "url":"https://revigorelife.com/go/bioma-probiotics/",
-    "priceCurrency":"USD",
-    "availability":"https://schema.org/InStock",
-    "eligibleRegion":"US"
-  }
-}
-</script>
 </body>
 </html>
