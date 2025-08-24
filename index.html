@@ -2,143 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>RevigoreLife — Live Your Best Life</title>
+  <title>RevigoreLife — Shop by Category</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RevigoreLife helps you live your best life with health, wellness, and lifestyle tips.">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="RevigoreLife — Live Your Best Life">
-  <meta property="og:description" content="RevigoreLife helps you live your best life with health, wellness, and lifestyle tips.">
+  <meta name="description" content="Discover curated wellness products by category. Health, Diet, CBD/Hemp, Gadgets and more.">
+  <meta property="og:title" content="RevigoreLife — Shop by Category">
+  <meta property="og:description" content="Curated wellness picks with clear availability by country.">
   <meta property="og:image" content="/og-cover.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://revigorelife.com/">
-
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
 
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYSHDCW0X5"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYSHDCW0X5',{anonymize_ip:true});</script>
+
   <style>
-    :root { --brand:#1C6B63; --ink:#163a36; --bg:#f7f9f8; }
+    :root{--brand:#1C6B63;--ink:#163a36;--bg:#f7f9f8;--border:#e7ecea}
     *{box-sizing:border-box}
-    html, body { height:100%; margin:0; }
-    body {
-      display:flex; flex-direction:column; min-height:100vh;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink); background:var(--bg); line-height:1.6;
-    }
-    header.hero {
-      background:#fff; padding:36px 20px 18px; border-bottom:1px solid #e7ecea; text-align:center;
-    }
-    .hero .logo {
-      width:clamp(160px,22vw,260px);
-      height:auto;
-      display:inline-block;
-      filter:drop-shadow(0 6px 18px rgba(0,0,0,.08));
-    }
-    main { flex:1; max-width:960px; margin:24px auto 48px; padding:0 20px; }
-    h1 { font-size:clamp(28px,4vw,44px); color:var(--brand); margin:16px 0 8px; }
-    .tagline { font-size:clamp(16px,2.2vw,20px); color:#5a6c69; margin-bottom:24px; }
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
 
-    /* Featured product card */
-    .featured { margin:28px 0 8px; }
-    .featured h2 { margin:0 0 12px; color:var(--ink); font-size:1.2rem; text-align:center; }
-    .card.product {
-      background:#fff; border:1px solid #e7ecea; border-radius:16px;
-      box-shadow:0 10px 24px rgba(0,0,0,.05);
-      padding:16px; display:grid; grid-template-columns:120px 1fr; gap:16px; align-items:center;
-      max-width:720px; margin:0 auto;
-    }
-    .card.product img { width:100%; height:100px; object-fit:contain; border-radius:10px; background:#fff; }
-    .card.product h3 { margin:4px 0 6px; color:var(--brand); }
-    .btns { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
-    .btn { display:inline-block; padding:10px 14px; border-radius:12px; text-decoration:none; font-weight:700 }
-    .btn.buy { background:var(--brand); color:#fff; }
-    .btn.more { border:2px solid var(--brand); color:var(--brand); background:#fff; }
+    /* Promo + header (search) + top nav */
+    .top-promo{background:#0f4f47;color:#fff;font-weight:600;text-align:center;padding:8px 12px;font-size:.95rem}
+    header.site-head{background:#fff;border-bottom:1px solid var(--border)}
+    header .row{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:180px 1fr 280px;gap:16px;align-items:center;padding:14px 16px}
+    .logo{height:44px;object-fit:contain}
+    .search{display:flex;gap:8px}
+    .search input{width:100%;padding:10px 12px;border:1px solid #cdd6d4;border-radius:12px}
+    .search button{padding:10px 14px;border-radius:12px;border:0;background:var(--brand);color:#fff;font-weight:700}
+    .quicklinks{text-align:right}
+    .quicklinks a{color:var(--ink);text-decoration:none;font-weight:600;margin-left:8px}
+    nav.top-nav{display:flex;gap:16px;justify-content:center;padding:10px 16px;border-top:1px solid var(--border)}
+    nav.top-nav a{color:var(--ink);text-decoration:none;font-weight:600}
 
-    .social { display:flex; justify-content:center; gap:18px; margin:36px 0 8px; align-items:center; }
-    .social img { width:34px; height:34px; object-fit:contain; display:block; }
-    .site-footer { background:var(--brand); color:#fff; text-align:center; }
-    .site-footer .links {
-      display:flex; gap:22px; justify-content:center; flex-wrap:wrap;
-      padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.2);
-    }
-    .site-footer .links a { color:#fff; text-decoration:none; font-weight:600; letter-spacing:.2px; }
-    .site-footer .links a:hover { text-decoration:underline; }
-    .site-footer .legal { font-size:.92rem; opacity:.95; padding:12px 16px 18px; }
+    .wrap{max-width:1200px;margin:22px auto 64px;padding:0 16px}
 
-    @media (max-width:700px){
-      .card.product { grid-template-columns:1fr; text-align:center; }
-      .card.product img { height:120px; }
-      .btns { justify-content:center; }
+    /* Mosaic like iHerb home */
+    .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:18px}
+    .tile{position:relative;display:block;height:260px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#eaf5f3,#d4ebe8)}
+    .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
+    .tile .overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,0) 55%)}
+    .tile .text{position:absolute;left:16px;bottom:16px;color:#fff}
+    .tile .text h2{margin:0 0 6px;font-size:1.6rem}
+    .tile .cta{display:inline-block;background:#ffffffe6;color:#0f4f47;font-weight:700;padding:8px 12px;border-radius:12px;text-decoration:none}
+    .tile .cta:hover{text-decoration:underline}
+    .tile--left{grid-column:span 6}.tile--center{grid-column:span 3}.tile--right{grid-column:span 3}
+
+    /* Category grid */
+    h3.section{margin:18px 0 10px;color:var(--ink);font-size:1.15rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+    .cat{position:relative;display:block;height:200px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#eaf5f3,#d4ebe8)}
+    .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .cat .shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.05))}
+    .cat h4{position:absolute;left:14px;bottom:14px;margin:0;color:#fff;font-size:1.1rem}
+    .cat:hover,.tile:hover{box-shadow:0 10px 24px rgba(0,0,0,.08)}
+
+    /* Featured product card (Bioma) */
+    .featured{margin:28px 0 8px}
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.05);padding:16px;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;max-width:720px;margin:0 auto}
+    .card img{width:100%;height:110px;object-fit:contain;border-radius:10px;background:#fff}
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700}
+    .btn.buy{background:var(--brand);color:#fff}
+    .btn.more{border:2px solid var(--brand);color:var(--brand);background:#fff}
+
+    /* Footer */
+    footer.site-footer{background:var(--brand);color:#fff;text-align:center}
+    footer.site-footer nav{display:flex;gap:22px;justify-content:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.2)}
+    footer.site-footer a{color:#fff;text-decoration:none;font-weight:600}
+    footer.site-footer .legal{padding:12px 16px 18px;opacity:.95}
+
+    @media (max-width:900px){
+      header .row{grid-template-columns:140px 1fr}
+      nav.top-nav{flex-wrap:wrap}
+      .tile--left{grid-column:span 12}
+      .tile--center,.tile--right{grid-column:span 6}
+      .tile{height:220px}
+      .card{grid-template-columns:1fr;text-align:center}
+      .card img{height:130px}
+    }
+    @media (max-width:640px){
+      .tile--center,.tile--right{grid-column:span 12}
+      .tile{height:200px}
     }
   </style>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYSHDCW0X5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZYSHDCW0X5');
-  </script>
 </head>
 <body>
 
-  <header class="hero" role="banner">
-    <img
-      src="/assets/img/revigorelife-logo1.png"
-      alt="RevigoreLife"
-      class="logo"
-      decoding="async"
-      loading="eager"
-      onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo.png';">
-  </header>
+<div class="top-promo">Curated wellness picks • Honest disclosures • Country-specific availability</div>
 
-  <main role="main">
-    <h1>Welcome to RevigoreLife</h1>
-    <p class="tagline">Live Your Best Life</p>
+<header class="site-head">
+  <div class="row">
+    <a href="/"><img src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" class="logo"
+      onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo.png';"></a>
 
-    <p>At RevigoreLife, we believe in empowering you with the tools, tips, and resources to live healthier, happier, and more fulfilled. Whether it’s improving your wellness, upgrading your daily habits, or finding the best lifestyle products, we’re here to guide you every step of the way.</p>
+    <form class="search" role="search" action="/products/">
+      <input name="q" type="search" placeholder="Search products…" aria-label="Search products">
+      <button type="submit">Search</button>
+    </form>
 
-    <p>Explore our articles, resources, and recommendations — and check back for new content soon.</p>
-
-    <!-- Featured product: Bioma Probiotics (US) -->
-    <section class="featured" aria-labelledby="feat-title">
-      <h2 id="feat-title">Featured product</h2>
-      <article class="card product">
-        <img src="/assets/img/products/bioma-probiotics/Main_Bioma.png"
-             alt="Bioma Probiotics"
-             onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo1.png';">
-        <div class="content">
-          <h3>Bioma Probiotics (US)</h3>
-          <p>Gut health support. Available in the United States.</p>
-          <div class="btns">
-            <a class="btn more" href="/us/products/bioma-probiotics/">See details</a>
-            <a class="btn buy"
-               href="/go/bioma-probiotics/?country=US"
-               rel="sponsored nofollow noopener"
-               onclick="gtag('event','affiliate_click',{offer:'bioma-probiotics',country:'US',placement:'home'});">
-               Buy
-            </a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <div class="social" role="group" aria-label="Social media icons">
-      <img src="/assets/img/Instagram.png" alt="Instagram logo" width="34" height="34" decoding="async" loading="lazy">
-      <img src="/assets/img/whatsapp.svg"  alt="WhatsApp logo"  width="34" height="34" decoding="async" loading="lazy">
-    </div>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <nav class="links" aria-label="Footer">
+    <div class="quicklinks">
+      <a href="/categories/">Categories</a>
+      <a href="/products/">All Products</a>
       <a href="/privacy.html">Privacy</a>
-      <a href="/disclosures.html">Disclosures</a>
-      <a href="mailto:contact@revigorelife.com">Contact</a>
-    </nav>
-    <div class="legal">
-      © <script>document.write(new Date().getFullYear())</script> RevigoreLife. All rights reserved.
     </div>
-  </footer>
+  </div>
 
+  <nav class="top-nav" aria-label="Top categories">
+    <a href="/category/health/">Health</a>
+    <a href="/category/diet/">Diet</a>
+    <a href="/category/male-enhancement/">Male Enhancement</a>
+    <a href="/category/cbd-hemp/">CBD / Hemp</a>
+    <a href="/category/gadgets/">Gadgets</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- iHerb-style MOSAIC -->
+  <section class="mosaic" aria-label="Highlights">
+    <a class="tile tile--left" href="/category/health/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'health'})">
+      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()">
+      <span class="overlay" aria-hidden="true"></span>
+      <div class="text"><h2>Shop Health</h2><span class="cta">Explore →</span></div>
+    </a>
+    <a class="tile tile--center" href="/products/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'all-products'})">
+      <img src="/assets/img/revigorelife-logo1.png" alt="" onerror="this.remove()">
+      <span class="overlay" aria-hidden="true"></span>
+      <div class="text"><h2>Wellness Hub</h2><span class="cta">Browse all →</span></div>
+    </a>
+    <a class="tile tile--right" href="/category/diet/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'diet'})">
+      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()">
+      <span class="overlay" aria-hidden="true"></span>
+      <div class="text"><h2>Diet & Weight</h2><span class="cta">Shop deals →</span></div>
+    </a>
+  </section>
+
+  <!-- SHOP BY CATEGORY GRID -->
+  <h3 class="section">Shop by Category</h3>
+  <section class="grid" aria-label="Shop by Category">
+    <a class="cat" href="/category/health/" onclick="gtag('event','nav_click',{section:'grid',tile:'health'})">
+      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Health</h4>
+    </a>
+    <a class="cat" href="/category/diet/" onclick="gtag('event','nav_click',{section:'grid',tile:'diet'})">
+      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Diet</h4>
+    </a>
+    <a class="cat" href="/category/male-enhancement/" onclick="gtag('event','nav_click',{section:'grid',tile:'male'})">
+      <img src="/assets/img/categories/male-enhancement.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Male Enhancement</h4>
+    </a>
+    <a class="cat" href="/category/cbd-hemp/" onclick="gtag('event','nav_click',{section:'grid',tile:'cbd'})">
+      <img src="/assets/img/categories/cbd-hemp.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>CBD / Hemp</h4>
+    </a>
+    <a class="cat" href="/category/gadgets/" onclick="gtag('event','nav_click',{section:'grid',tile:'gadgets'})">
+      <img src="/assets/img/categories/gadgets.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Gadgets</h4>
+    </a>
+  </section>
+
+  <!-- Featured product: Bioma (US) -->
+  <section class="featured" aria-labelledby="feat-title">
+    <h3 id="feat-title" class="section">Featured</h3>
+    <article class="card">
+      <img src="/assets/img/products/bioma-probiotics/Main_Bioma.png" alt="Bioma Probiotics"
+           onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo1.png';">
+      <div>
+        <h3 style="margin:4px 0 6px;color:var(--brand)">Bioma Probiotics (US)</h3>
+        <p>Gut health support. Available in the United States.</p>
+        <div class="btns">
+          <a class="btn more" href="/us/products/bioma-probiotics/">See details</a>
+          <a class="btn buy" href="/go/bioma-probiotics/?country=US" rel="sponsored nofollow noopener"
+             onclick="gtag('event','affiliate_click',{offer:'bioma-probiotics',country:'US',placement:'home'});">Buy</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <nav>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/disclosures.html">Disclosures</a>
+    <a href="/">Home</a>
+  </nav>
+  <div class="legal">© <script>document.write(new Date().getFullYear())</script> RevigoreLife</div>
+</footer>
 </body>
 </html>
