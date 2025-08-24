@@ -15,9 +15,6 @@
 
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
 
-  <!-- Preload the WebP LCP image for faster paint -->
-  <link rel="preload" as="image" href="/assets/img/revigorelife-logo1.webp" type="image/webp">
-
   <style>
     :root { --brand:#1C6B63; --ink:#163a36; --bg:#f7f9f8; }
     *{box-sizing:border-box}
@@ -58,15 +55,16 @@
 <body>
 
   <header class="hero" role="banner">
+    <!-- Robust WebP with PNG fallback AND a runtime fallback if the WebP 404s -->
     <picture>
       <source srcset="/assets/img/revigorelife-logo1.webp" type="image/webp">
       <img
         src="/assets/img/revigorelife-logo1.png"
         alt="RevigoreLife"
         class="logo"
-        fetchpriority="high"
         decoding="async"
-        loading="eager">
+        loading="eager"
+        onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo1.png';">
     </picture>
   </header>
 
