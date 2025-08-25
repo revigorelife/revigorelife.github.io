@@ -2,137 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Categories | RevigoreLife</title>
+  <title>Categories - RevigoreLife</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shop by category: Health, Diet, Male Enhancement, CBD/Hemp, Gadgets.">
+  <meta name="description" content="Browse all RevigoreLife product categories. Health, diet, CBD/hemp, gadgets and more curated wellness picks.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Categories - RevigoreLife">
+  <meta property="og:description" content="Browse all product categories with curated wellness picks and honest reviews.">
+  <meta property="og:image" content="/og-cover.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://revigorelife.com/categories/">
+
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
 
   <!-- GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYSHDCW0X5"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','G-ZYSHDCW0X5',{anonymize_ip:true});</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-ZYSHDCW0X5', { anonymize_ip: true });
+  </script>
 
   <style>
     :root{--brand:#1C6B63;--ink:#163a36;--bg:#f7f9f8;--border:#e7ecea}
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-    header{padding:24px 20px;border-bottom:1px solid var(--border);background:#fff;text-align:center}
-    header h1{color:var(--brand);margin:0 0 .4rem}
-    header p{color:#4b5c59;margin:.2rem 0 0}
 
-    .wrap{max-width:1200px;margin:22px auto 64px;padding:0 16px}
+    /* Container and layout */
+    .container{max-width:1200px;margin:0 auto;padding:20px 16px}
+    
+    /* Navigation breadcrumb */
+    .nav-breadcrumb{
+      background:#fff;border:1px solid var(--border);border-radius:12px;
+      padding:15px 20px;margin-bottom:30px;display:flex;align-items:center;
+      justify-content:space-between;box-shadow:0 2px 8px rgba(0,0,0,.05)
+    }
+    .back-nav{display:flex;align-items:center;gap:15px}
+    .back-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--brand);color:#fff;padding:10px 20px;
+      border-radius:10px;text-decoration:none;font-weight:600;
+      transition:all 0.3s ease;font-size:0.95rem
+    }
+    .back-btn:hover{background:#155853;transform:translateY(-1px)}
+    .breadcrumb{color:#666;font-size:0.9rem}
+    .breadcrumb a{color:var(--brand);text-decoration:none;font-weight:600}
+    .breadcrumb a:hover{text-decoration:underline}
 
-    /* --- MOSAIC (promo-like hero tiles) --- */
-    .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:18px}
-    .tile{position:relative;display:block;height:260px;border-radius:18px;overflow:hidden;
-          background:linear-gradient(135deg,#eaf5f3,#d4ebe8);}
-    .tile:focus,.tile:hover{outline:none;box-shadow:0 10px 26px rgba(0,0,0,.08)}
-    .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
-    .tile .overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,.0) 50%)}
-    .tile .text{position:absolute;left:16px;bottom:16px;color:#fff}
-    .tile .text h2{margin:0 0 6px;font-size:1.6rem}
-    .tile .cta{display:inline-block;background:#ffffffe6;color:#0f4f47;font-weight:700;
-               padding:8px 12px;border-radius:12px;text-decoration:none}
-    .tile .cta:hover{text-decoration:underline}
+    .quick-actions{display:flex;gap:10px;align-items:center}
+    .quick-action{
+      padding:8px 16px;border:2px solid var(--brand);
+      border-radius:8px;text-decoration:none;color:var(--brand);
+      font-weight:600;font-size:0.9rem;transition:all 0.2s ease
+    }
+    .quick-action:hover{background:var(--brand);color:#fff}
 
-    .tile--left{grid-column:span 6}
-    .tile--center{grid-column:span 3}
-    .tile--right{grid-column:span 3}
+    /* Page header */
+    .page-header{text-align:center;margin-bottom:40px}
+    .page-header h1{
+      color:var(--brand);margin-bottom:15px;font-size:2.5rem;
+      font-weight:700;text-shadow:0 2px 4px rgba(28,107,99,0.1)
+    }
+    .page-subtitle{color:#666;font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.5}
 
-    /* --- CATEGORY GRID --- */
-    h3.section{margin:18px 0 10px;color:var(--ink);font-size:1.15rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-    .cat{position:relative;display:block;height:200px;border-radius:16px;overflow:hidden;
-         background:linear-gradient(135deg,#eaf5f3,#d4ebe8)}
-    .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .cat .shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.05))}
-    .cat h4{position:absolute;left:14px;bottom:14px;margin:0;color:#fff;font-size:1.1rem}
-    .cat:focus,.cat:hover{outline:none;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    /* Hero mosaic section */
+    .hero-mosaic{
+      display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-bottom:40px;
+      padding:20px;background:#fff;border-radius:18px;border:1px solid var(--border);
+      box-shadow:0 4px 15px rgba(0,0,0,.06)
+    }
+    .hero-tile{
+      position:relative;display:block;height:240px;border-radius:16px;overflow:hidden;
+      background:linear-gradient(135deg,#eaf5f3,#d4ebe8);transition:all 0.3s ease;
+    }
+    .hero-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
+    .hero-tile .overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,0) 60%)}
+    .hero-tile .content{position:absolute;left:20px;bottom:20px;color:#fff}
+    .hero-tile .content h2{margin:0 0 8px;font-size:1.5rem;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+    .hero-tile .cta{
+      display:inline-block;background:#ffffffe9;color:#0f4f47;
+      font-weight:700;padding:10px 16px;border-radius:10px;text-decoration:none;
+      font-size:0.9rem;transition:all 0.2s ease;text-shadow:none
+    }
+    .hero-tile .cta:hover{background:#fff;text-decoration:none;transform:translateY(-1px)}
+    .hero-tile:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.15)}
+    
+    .hero-tile--main{grid-column:span 6}
+    .hero-tile--secondary{grid-column:span 3}
+    .hero-tile--accent{grid-column:span 3}
+
+    /* Category grid */
+    .categories-section{margin-bottom:40px}
+    .section-title{
+      margin:0 0 25px;color:var(--ink);font-size:1.3rem;font-weight:700;
+      text-align:center;position:relative
+    }
+    .section-title::after{
+      content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+      width:60px;height:3px;background:var(--brand);border-radius:2px
+    }
+
+    .categories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+    .category-card{
+      position:relative;display:block;height:220px;border-radius:16px;overflow:hidden;
+      background:linear-gradient(135deg,#eaf5f3,#d4ebe8);
+      transition:all 0.3s ease;cursor:pointer;
+      box-shadow:0 4px 15px rgba(0,0,0,.08);border:1px solid var(--border)
+    }
+    .category-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .category-card .overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),rgba(0,0,0,.1) 70%)}
+    .category-card h3{
+      position:absolute;left:20px;bottom:20px;margin:0;color:#fff;
+      font-size:1.2rem;font-weight:700;text-shadow:0 2px 6px rgba(0,0,0,.4);
+      z-index:2
+    }
+    .category-card:hover{
+      transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,.15);
+      border-color:var(--brand)
+    }
+
+    /* Category fallback colors */
+    .category-card.health{background:linear-gradient(135deg,#2ecc71,#27ae60)}
+    .category-card.diet{background:linear-gradient(135deg,#3498db,#2980b9)}
+    .category-card.male-enhancement{background:linear-gradient(135deg,#e74c3c,#c0392b)}
+    .category-card.cbd-hemp{background:linear-gradient(135deg,#27ae60,#229954)}
+    .category-card.gadgets{background:linear-gradient(135deg,#9b59b6,#8e44ad)}
+
+    /* Stats section */
+    .stats-section{
+      background:#fff;border-radius:16px;padding:30px;margin-bottom:30px;
+      text-align:center;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.06)
+    }
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:30px}
+    .stat-item{text-align:center}
+    .stat-number{font-size:2.2rem;font-weight:700;color:var(--brand);display:block;margin-bottom:5px}
+    .stat-label{color:#666;font-size:0.9rem;font-weight:600}
 
     /* Footer */
-    footer{background:var(--brand);color:#fff;text-align:center;margin-top:36px}
-    footer nav{display:flex;gap:22px;justify-content:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.2)}
-    footer a{color:#fff;text-decoration:none;font-weight:600}
-    footer a:hover{text-decoration:underline}
-    footer .legal{padding:12px 16px 18px}
+    footer.site-footer{background:var(--brand);color:#fff;text-align:center;margin-top:60px}
+    footer.site-footer nav{display:flex;gap:22px;justify-content:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.2)}
+    footer.site-footer a{color:#fff;text-decoration:none;font-weight:600}
+    footer.site-footer .legal{padding:12px 16px 18px;opacity:.95}
 
-    @media (max-width:980px){
-      .tile--left{grid-column:span 12}
-      .tile--center{grid-column:span 6}
-      .tile--right{grid-column:span 6}
-      .tile{height:220px}
+    /* Responsive design */
+    @media (max-width:900px){
+      .hero-mosaic{grid-template-columns:repeat(6,1fr)}
+      .hero-tile--main{grid-column:span 6}
+      .hero-tile--secondary,.hero-tile--accent{grid-column:span 3}
+      .nav-breadcrumb{flex-direction:column;gap:15px;text-align:center}
+      .quick-actions{justify-content:center}
     }
     @media (max-width:640px){
-      .tile--center,.tile--right{grid-column:span 12}
-      .tile{height:200px}
-      .cat{height:170px}
+      .hero-mosaic{padding:15px}
+      .hero-tile--secondary,.hero-tile--accent{grid-column:span 6;height:200px}
+      .hero-tile .content h2{font-size:1.3rem}
+      .categories-grid{grid-template-columns:repeat(2,1fr);gap:15px}
+      .category-card{height:180px}
+      .page-header h1{font-size:2rem}
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Categories</h1>
-  <p>Discover curated picks across health, diet, CBD/hemp, gadgets and more.</p>
-</header>
+<main class="container">
+  <!-- Navigation Breadcrumb -->
+  <nav class="nav-breadcrumb" aria-label="Breadcrumb">
+    <div class="back-nav">
+      <a href="/" class="back-btn" onclick="gtag('event','navigation',{action:'back_to_home',page:'categories'})">
+        ← Back to Home
+      </a>
+      <div class="breadcrumb">
+        <a href="/">RevigoreLife</a> / Categories
+      </div>
+    </div>
+    <div class="quick-actions">
+      <a href="/products/" class="quick-action">All Products</a>
+      <a href="/#featured" class="quick-action">Featured</a>
+    </div>
+  </nav>
 
-<main class="wrap">
+  <!-- Page Header -->
+  <header class="page-header">
+    <h1>Categories</h1>
+    <p class="page-subtitle">Discover curated picks across health, diet, CBD/hemp, gadgets and more.</p>
+  </header>
 
-  <!-- MOSAIC (inspired by iHerb home blocks) -->
-  <section class="mosaic" aria-label="Highlights">
-    <!-- Left big tile: Health -->
-    <a class="tile tile--left" href="/category/health/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'health'})">
-      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()">
-      <span class="overlay" aria-hidden="true"></span>
-      <div class="text">
+  <!-- Hero Mosaic -->
+  <section class="hero-mosaic" aria-label="Featured Categories">
+    <a class="hero-tile hero-tile--main" href="/category/health/" onclick="gtag('event','category_click',{category:'health',placement:'hero'})">
+      <img src="/assets/img/categories/health.jpg" alt="Health Category" onerror="this.style.display='none'">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Shop Health</h2>
         <span class="cta">Explore →</span>
       </div>
     </a>
-
-    <!-- Center tile: Wellness Hub (All Products) -->
-    <a class="tile tile--center" href="/products/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'all-products'})">
-      <img src="/assets/img/revigorelife-logo1.png" alt="" onerror="this.remove()">
-      <span class="overlay" aria-hidden="true"></span>
-      <div class="text">
+    
+    <a class="hero-tile hero-tile--secondary" href="/products/" onclick="gtag('event','navigation',{action:'browse_all',placement:'hero'})">
+      <img src="/assets/img/revigorelife-logo1.png" alt="Browse All Products" onerror="this.style.display='none'">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Wellness Hub</h2>
         <span class="cta">Browse all →</span>
       </div>
     </a>
-
-    <!-- Right tile: Diet -->
-    <a class="tile tile--right" href="/category/diet/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'diet'})">
-      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()">
-      <span class="overlay" aria-hidden="true"></span>
-      <div class="text">
+    
+    <a class="hero-tile hero-tile--accent" href="/category/diet/" onclick="gtag('event','category_click',{category:'diet',placement:'hero'})">
+      <img src="/assets/img/categories/diet.jpg" alt="Diet Category" onerror="this.style.display='none'">
+      <div class="overlay"></div>
+      <div class="content">
         <h2>Diet & Weight</h2>
         <span class="cta">Shop deals →</span>
       </div>
     </a>
   </section>
 
-  <!-- CATEGORY GRID -->
-  <h3 class="section">Shop by Category</h3>
-  <section class="grid" aria-label="Shop by Category">
-    <a class="cat" href="/category/health/" onclick="gtag('event','nav_click',{section:'grid',tile:'health'})">
-      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Health</h4>
-    </a>
-    <a class="cat" href="/category/diet/" onclick="gtag('event','nav_click',{section:'grid',tile:'diet'})">
-      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Diet</h4>
-    </a>
-    <a class="cat" href="/category/male-enhancement/" onclick="gtag('event','nav_click',{section:'grid',tile:'male'})">
-      <img src="/assets/img/categories/male-enhancement.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Male Enhancement</h4>
-    </a>
-    <a class="cat" href="/category/cbd-hemp/" onclick="gtag('event','nav_click',{section:'grid',tile:'cbd'})">
-      <img src="/assets/img/categories/cbd-hemp.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>CBD / Hemp</h4>
-    </a>
-    <a class="cat" href="/category/gadgets/" onclick="gtag('event','nav_click',{section:'grid',tile:'gadgets'})">
-      <img src="/assets/img/categories/gadgets.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Gadgets</h4>
-    </a>
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100+</span>
+        <span class="stat-label">Products</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Brands</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4.8★</span>
+        <span class="stat-label">Avg Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Categories -->
+  <section class="categories-section">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories-grid">
+      <a class="category-card health" href="/category/health/" onclick="gtag('event','category_click',{category:'health',placement:'grid'})">
+        <img src="/assets/img/categories/health.jpg" alt="Health supplements and wellness products" onerror="this.style.display='none'">
+        <div class="overlay"></div>
+        <h3>Health</h3>
+      </a>
+
+      <a class="category-card diet" href="/category/diet/" onclick="gtag('event','category_click',{category:'diet',placement:'grid'})">
+        <img src="/assets/img/categories/diet.jpg" alt="Diet and weight management products" onerror="this.style.display='none'">
+        <div class="overlay"></div>
+        <h3>Diet</h3>
+      </a>
+
+      <a class="category-card male-enhancement" href="/category/male-enhancement/" onclick="gtag('event','category_click',{category:'male-enhancement',placement:'grid'})">
+        <img src="/assets/img/categories/male-enhancement.jpg" alt="Male enhancement and performance products" onerror="this.style.display='none'">
+        <div class="overlay"></div>
+        <h3>Male Enhancement</h3>
+      </a>
+
+      <a class="category-card cbd-hemp" href="/category/cbd-hemp/" onclick="gtag('event','category_click',{category:'cbd-hemp',placement:'grid'})">
+        <img src="/assets/img/categories/cbd-hemp.jpg" alt="CBD and hemp wellness products" onerror="this.style.display='none'">
+        <div class="overlay"></div>
+        <h3>CBD / Hemp</h3>
+      </a>
+
+      <a class="category-card gadgets" href="/category/gadgets/" onclick="gtag('event','category_click',{category:'gadgets',placement:'grid'})">
+        <img src="/assets/img/categories/gadgets.jpg" alt="Health and wellness gadgets" onerror="this.style.display='none'">
+        <div class="overlay"></div>
+        <h3>Gadgets</h3>
+      </a>
+    </div>
   </section>
 
 </main>
 
-<footer>
+<footer class="site-footer">
   <nav>
     <a href="/privacy.html">Privacy</a>
     <a href="/disclosures.html">Disclosures</a>
