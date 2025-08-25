@@ -29,40 +29,21 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
 
-/* === style Featured grid (complete) === */
-.featured { margin: 28px 0 8px }
-.featured h3.section { margin: 18px 0 12px; color: var(--ink); font-size: 1.15rem }
-
-.cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:14px }
-
-.pcard { background:#fff; border:1px solid var(--border); border-radius:14px;
-         box-shadow:0 8px 22px rgba(0,0,0,.06); padding:12px; display:flex; flex-direction:column }
-
-.pimg { aspect-ratio: 4 / 5; padding: 10px; }      /* taller image area */
-.pimg img { transform: scale(1); transition: transform .15s ease; }
-.pcard:hover .pimg img { transform: scale(1.04); } /* subtle hover zoom */
-
-.swatches { display:flex; gap:6px; margin:8px 0 6px }
-.swatch { width:11px; height:11px; border-radius:999px; border:1px solid rgba(0,0,0,.25) }
-.ptitle { margin:6px 0 4px; font-size:.95rem; line-height:1.35;
-          display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
-.prating { display:flex; align-items:center; gap:6px; margin:2px 0 4px; font-size:.86rem; color:#4b5c59 }
-.stars { letter-spacing:1px; color:#F59E0B } /* ★ unicode stars */
-.price { font-weight:800; margin:6px 0 2px; font-size:1.05rem }
-.price sup { font-size:.7em; vertical-align:top }
-.meta { color:#5a6c69; font-size:.82rem; margin:0 0 8px }
-.actions { margin-top:auto; display:flex; gap:8px }
-.pbtn { flex:1; text-align:center; padding:9px 10px; border-radius:12px; text-decoration:none; font-weight:700 }
-.pbtn.buy { background:var(--brand); color:#fff }
-.pbtn.more { border:2px solid var(--brand); color:var(--brand); background:#fff }
-
-.pdesc{ color:#5a6c69; font-size:.85rem; margin:2px 0 4px;
-        display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
-
-
+    /* === Amazon-style Featured grid (complete) === */
+    .featured { margin: 28px 0 8px }
+    .featured h3.section { margin: 18px 0 12px; color: var(--ink); font-size: 1.15rem }
+    .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:14px }
+    .pcard { background:#fff; border:1px solid var(--border); border-radius:14px;
+             box-shadow:0 8px 22px rgba(0,0,0,.06); padding:12px; display:flex; flex-direction:column }
+    .pimg { aspect-ratio: 4 / 5; padding: 10px; }      /* taller image area like Amazon */
+    .pimg img { width:100%; height:100%; object-fit:contain; transform: scale(1); transition: transform .15s ease; }
+    .pcard:hover .pimg img { transform: scale(1.04); } /* subtle hover zoom */
     .swatches { display:flex; gap:6px; margin:8px 0 6px }
     .swatch { width:11px; height:11px; border-radius:999px; border:1px solid rgba(0,0,0,.25) }
-    .ptitle { margin:6px 0 4px; font-size:.95rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
+    .ptitle { margin:6px 0 4px; font-size:.95rem; line-height:1.35;
+              display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
+    .pdesc{ color:#5a6c69; font-size:.85rem; margin:2px 0 4px;
+            display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden }
     .prating { display:flex; align-items:center; gap:6px; margin:2px 0 4px; font-size:.86rem; color:#4b5c59 }
     .stars { letter-spacing:1px; color:#F59E0B } /* ★ unicode stars */
     .price { font-weight:800; margin:6px 0 2px; font-size:1.05rem }
@@ -72,15 +53,6 @@
     .pbtn { flex:1; text-align:center; padding:9px 10px; border-radius:12px; text-decoration:none; font-weight:700 }
     .pbtn.buy { background:var(--brand); color:#fff }
     .pbtn.more { border:2px solid var(--brand); color:var(--brand); background:#fff }
-    .pdesc{
-  color:#5a6c69;
-  font-size:.85rem;
-  margin:2px 0 4px;
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-}
 
     /* Promo + header (search) + top nav */
     .top-promo{background:#0f4f47;color:#fff;font-weight:600;text-align:center;padding:8px 12px;font-size:.95rem}
@@ -236,9 +208,11 @@
       if (r.ok) items = await r.json();
     } catch(e) {}
     if (!items.length) {
+      // Fallback if JSON is missing
       items = [{
         slug:'bioma-probiotics',
         title:'Bioma Probiotics — Gut Health Support (US)',
+        desc:'3-in-1 gut support with prebiotics, probiotics, and postbiotics.',
         image:'/assets/img/products/bioma-probiotics/Main_Bioma.png',
         price:{d:47, c:'99', currency:'$'},
         rating:4.6,
@@ -269,7 +243,9 @@
         </a>
 
         <div class="swatches" aria-label="Options">${sw}</div>
+
         <a class="ptitle" href="${p.productUrl||'#'}">${escapeHtml(p.title)}</a>
+        ${p.desc ? `<div class="pdesc">${escapeHtml(p.desc)}</div>` : ``}
 
         <div class="prating">
           <span class="stars" aria-label="${(p.rating||0).toFixed(1)} out of 5">${stars}</span>
