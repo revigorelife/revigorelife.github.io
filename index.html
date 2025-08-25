@@ -35,7 +35,7 @@
     .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:14px }
     .pcard { background:#fff; border:1px solid var(--border); border-radius:14px;
              box-shadow:0 8px 22px rgba(0,0,0,.06); padding:12px; display:flex; flex-direction:column }
-    .pimg { aspect-ratio: 4 / 5; padding: 10px; }      /* taller image area like Amazon */
+    .pimg { aspect-ratio: 4 / 5; padding: 10px; }      /* taller image area */
     .pimg img { width:100%; height:100%; object-fit:contain; transform: scale(1); transition: transform .15s ease; }
     .pcard:hover .pimg img { transform: scale(1.04); } /* subtle hover zoom */
     .swatches { display:flex; gap:6px; margin:8px 0 6px }
@@ -72,7 +72,7 @@
 
     .wrap{max-width:1200px;margin:22px auto 64px;padding:0 16px}
 
-    /* Mosaic like iHerb home */
+    /* Mosaic like professional e-commerce sites */
     .mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-bottom:18px}
     .tile{position:relative;display:block;height:260px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,#eaf5f3,#d4ebe8)}
     .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.02) saturate(1.02)}
@@ -83,14 +83,25 @@
     .tile .cta:hover{text-decoration:underline}
     .tile--left{grid-column:span 6}.tile--center{grid-column:span 3}.tile--right{grid-column:span 3}
 
-    /* Category grid */
+    /* Category grid - ENHANCED WITH IMAGES */
     h3.section{margin:18px 0 10px;color:var(--ink);font-size:1.15rem}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-    .cat{position:relative;display:block;height:200px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#eaf5f3,#d4ebe8)}
+    .cat{
+      position:relative;display:block;height:200px;border-radius:16px;overflow:hidden;
+      background:linear-gradient(135deg,#eaf5f3,#d4ebe8);
+      transition:all 0.3s ease;
+    }
     .cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .cat .shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.4),rgba(0,0,0,.05))}
-    .cat h4{position:absolute;left:14px;bottom:14px;margin:0;color:#fff;font-size:1.1rem}
-    .cat:hover,.tile:hover{box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .cat h4{position:absolute;left:14px;bottom:14px;margin:0;color:#fff;font-size:1.1rem;text-shadow:0 2px 4px rgba(0,0,0,.3)}
+    .cat:hover,.tile:hover{box-shadow:0 10px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+
+    /* Category images fallback styles */
+    .cat.health { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+    .cat.diet { background: linear-gradient(135deg, #3498db, #2980b9); }
+    .cat.male-enhancement { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+    .cat.cbd-hemp { background: linear-gradient(135deg, #27ae60, #229954); }
+    .cat.gadgets { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
 
     /* Footer */
     footer.site-footer{background:var(--brand);color:#fff;text-align:center}
@@ -146,43 +157,53 @@
   <!-- Mosaic -->
   <section class="mosaic" aria-label="Highlights">
     <a class="tile tile--left" href="/category/health/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'health'})">
-      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()">
+      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.style.display='none'">
       <span class="overlay" aria-hidden="true"></span>
       <div class="text"><h2>Shop Health</h2><span class="cta">Explore →</span></div>
     </a>
     <a class="tile tile--center" href="/products/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'all-products'})">
-      <img src="/assets/img/revigorelife-logo1.png" alt="" onerror="this.remove()">
+      <img src="/assets/img/revigorelife-logo1.png" alt="" onerror="this.style.display='none'">
       <span class="overlay" aria-hidden="true"></span>
       <div class="text"><h2>Wellness Hub</h2><span class="cta">Browse all →</span></div>
     </a>
     <a class="tile tile--right" href="/category/diet/" onclick="gtag('event','nav_click',{section:'mosaic',tile:'diet'})">
-      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()">
+      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.style.display='none'">
       <span class="overlay" aria-hidden="true"></span>
       <div class="text"><h2>Diet & Weight</h2><span class="cta">Shop deals →</span></div>
     </a>
   </section>
 
-  <!-- Shop by Category grid -->
+  <!-- Shop by Category grid - ENHANCED WITH IMAGES -->
   <h3 class="section">Shop by Category</h3>
   <section class="grid" aria-label="Shop by Category">
-    <a class="cat" href="/category/health/" onclick="gtag('event','nav_click',{section:'grid',tile:'health'})">
-      <img src="/assets/img/categories/health.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Health</h4>
+    <a class="cat health" href="/category/health/" onclick="gtag('event','nav_click',{section:'grid',tile:'health'})">
+      <img src="/assets/img/categories/health.jpg" alt="Health Category" onerror="this.style.display='none'">
+      <span class="shade"></span>
+      <h4>Health</h4>
     </a>
-    <a class="cat" href="/category/diet/" onclick="gtag('event','nav_click',{section:'grid',tile:'diet'})">
-      <img src="/assets/img/categories/diet.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Diet</h4>
+    <a class="cat diet" href="/category/diet/" onclick="gtag('event','nav_click',{section:'grid',tile:'diet'})">
+      <img src="/assets/img/categories/diet.jpg" alt="Diet Category" onerror="this.style.display='none'">
+      <span class="shade"></span>
+      <h4>Diet</h4>
     </a>
-    <a class="cat" href="/category/male-enhancement/" onclick="gtag('event','nav_click',{section:'grid',tile:'male'})">
-      <img src="/assets/img/categories/male-enhancement.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Male Enhancement</h4>
+    <a class="cat male-enhancement" href="/category/male-enhancement/" onclick="gtag('event','nav_click',{section:'grid',tile:'male'})">
+      <img src="/assets/img/categories/male-enhancement.jpg" alt="Male Enhancement Category" onerror="this.style.display='none'">
+      <span class="shade"></span>
+      <h4>Male Enhancement</h4>
     </a>
-    <a class="cat" href="/category/cbd-hemp/" onclick="gtag('event','nav_click',{section:'grid',tile:'cbd'})">
-      <img src="/assets/img/categories/cbd-hemp.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>CBD / Hemp</h4>
+    <a class="cat cbd-hemp" href="/category/cbd-hemp/" onclick="gtag('event','nav_click',{section:'grid',tile:'cbd'})">
+      <img src="/assets/img/categories/cbd-hemp.jpg" alt="CBD Hemp Category" onerror="this.style.display='none'">
+      <span class="shade"></span>
+      <h4>CBD / Hemp</h4>
     </a>
-    <a class="cat" href="/category/gadgets/" onclick="gtag('event','nav_click',{section:'grid',tile:'gadgets'})">
-      <img src="/assets/img/categories/gadgets.jpg" alt="" onerror="this.remove()"><span class="shade"></span><h4>Gadgets</h4>
+    <a class="cat gadgets" href="/category/gadgets/" onclick="gtag('event','nav_click',{section:'grid',tile:'gadgets'})">
+      <img src="/assets/img/categories/gadgets.jpg" alt="Gadgets Category" onerror="this.style.display='none'">
+      <span class="shade"></span>
+      <h4>Gadgets</h4>
     </a>
   </section>
 
-  <!-- Featured: Amazon-style grid -->
+  <!-- Featured: Professional product grid -->
   <section class="featured" aria-labelledby="feat-title">
     <h3 id="feat-title" class="section">Featured</h3>
     <div id="featured-cards" class="cards" aria-live="polite"></div>
@@ -201,7 +222,7 @@
 
 <!-- Search form handler -->
 <script>
-// Add this before your existing featured products script
+// Search form handler
 document.addEventListener('DOMContentLoaded', function() {
   const searchForm = document.querySelector('.search');
   searchForm.addEventListener('submit', function(e) {
