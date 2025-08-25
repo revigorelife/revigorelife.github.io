@@ -120,10 +120,10 @@
     <a href="/"><img src="/assets/img/revigorelife-logo1.png" alt="RevigoreLife" class="logo"
       onerror="this.onerror=null; this.src='/assets/img/revigorelife-logo.png';"></a>
 
-<form class="search" role="search" onsubmit="return handleSearch(event)">
-  <input name="q" type="search" placeholder="Search products…" aria-label="Search products" id="search-input">
-  <button type="submit">Search</button>
-</form>
+    <form class="search" role="search" action="/products/">
+      <input name="q" type="search" placeholder="Search products…" aria-label="Search products">
+      <button type="submit">Search</button>
+    </form>
 
     <!-- quicklinks: Privacy removed -->
     <div class="quicklinks">
@@ -199,6 +199,25 @@
   <div class="legal">© <script>document.write(new Date().getFullYear())</script> RevigoreLife</div>
 </footer>
 
+<!-- Search form handler -->
+<script>
+// Add this before your existing featured products script
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.querySelector('.search');
+  searchForm.addEventListener('submit', function(e) {
+    const query = this.querySelector('input[name="q"]').value.trim();
+    if (!query) {
+      e.preventDefault();
+      alert('Please enter a search term');
+      return false;
+    }
+    // For now, just prevent the form submission since /products/ doesn't exist
+    e.preventDefault();
+    alert(`Search for "${query}" - Coming soon!`);
+  });
+});
+</script>
+
 <!-- Featured grid script -->
 <script>
   (async function renderFeatured(){
@@ -262,20 +281,7 @@
         </div>
       </article>`;
   }
-<script>
-function handleSearch(event) {
-  const query = document.getElementById('search-input').value.trim();
-  if (!query) {
-    event.preventDefault();
-    alert('Please enter a search term');
-    return false;
-  }
-  // For now, redirect to homepage with search query
-  window.location.href = `/?search=${encodeURIComponent(query)}`;
-  event.preventDefault();
-  return false;
-}
-</script>
+
   function toStars(r){
     const full = Math.floor(r), half = (r-full)>=0.5?1:0, empty = 5-full-half;
     return '★'.repeat(full) + (half?'☆':'') + '☆'.repeat(empty);
