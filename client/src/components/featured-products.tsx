@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import ProductCard from "./product-card";
 import { featuredProducts } from "@/data/products";
-import { Button } from "@/components/ui/button"; // <-- added
+import { Button } from "@/components/ui/button"; // keep Button for consistent styling
 
 export default function FeaturedProducts() {
   const products = featuredProducts;
