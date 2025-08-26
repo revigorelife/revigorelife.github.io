@@ -8,6 +8,13 @@
     "build:static": "vite build --config ../vite.config.static.ts",
     "preview": "vite preview"
   },
+  "scripts": {
+  "dev": "vite",
+  "build": "tsc && vite build",
+  "build:static": "vite build --config ./vite.config.static.ts",
+  "preview": "vite preview",
+  "deploy": "npm run build:static && gh-pages -d dist -t -m \"Deploy static site\""
+},
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
