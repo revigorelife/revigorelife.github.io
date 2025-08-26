@@ -31,4 +31,3 @@ export default function StarRating({ rating, className = "" }: StarRatingProps) 
     </div>
   );
 }
-EOF
