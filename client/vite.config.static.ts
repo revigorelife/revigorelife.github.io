@@ -4,12 +4,12 @@ import path from "path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",            // user/org Pages → root domain
+  base: "/",                 // custom domain at site root
   build: {
     outDir: "dist",
     sourcemap: false,
-    rollupOptions: { output: { manualChunks: undefined } }
+    rollupOptions: { output: { manualChunks: undefined } },
   },
-  resolve: { alias: { "@": path.resolve(__dirname, "./client/src") } },
-  root: "./client"
+  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  root: ".",                 // client is the project root for this package
 });

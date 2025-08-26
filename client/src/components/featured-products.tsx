@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import ProductCard from "./product-card";
+import ProductCard from "@/components/product-card";
 import { featuredProducts } from "@/data/products";
 import { Button } from "@/components/ui/button"; // keep Button for consistent styling
 
