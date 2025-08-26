@@ -1,6 +1,3 @@
-cd /workspaces/revigorelife.github.io/client
-
-cat > src/components/star-rating.tsx <<'EOF'
 import { Star } from "lucide-react";
 
 interface StarRatingProps {
